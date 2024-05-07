@@ -30,56 +30,6 @@ app.use((req, res, next) => {
 
 const User = require('./models/User'); // Import the User model
 
-const tempUser = new User({
-    username: 'johndoe',
-    email: 'johndoe3@example.com',
-    password: 'password123' // Note that this password is not hashed!
-  });
-  // Check if a user with the same email already exists
-  User.findOne({ email: tempUser.email })
-    .then((existingUser) => {
-      if (existingUser) {
-        // If a user with the same email exists, log an error
-        console.error('Error creating temporary user: User with this email already exists');
-      } else {
-        // If no user with the same email exists, save the new user
-        tempUser.save()
-          .then(() => {
-            console.log('Temporary user created:', tempUser);
-          })
-          .catch((error) => {
-            console.error('Error creating temporary user:', error);
-          });
-      }
-    })
-    .catch((error) => {
-      console.error('Error checking for existing user:', error);
-    });
-    const tempUser2 = new User({
-    username: 'eyosias',
-    email: 'eyosias17@gmail.com',
-    password: 'password1234' // Note that this password is not hashed!
-  });
-  // Check if a user with the same email already exists
-  User.findOne({ email: tempUser2.email })
-    .then((existingUser) => {
-      if (existingUser) {
-        // If a user with the same email exists, log an error
-        console.error('Error creating temporary user: User with this email already exists');
-      } else {
-        // If no user with the same email exists, save the new user
-        tempUser2.save()
-          .then(() => {
-            console.log('Temporary user created:', tempUser2);
-          })
-          .catch((error) => {
-            console.error('Error creating temporary user:', error);
-          });
-      }
-    })
-    .catch((error) => {
-      console.error('Error checking for existing user:', error);
-    });
 
 // // Create a temporary user object
 // const tempUser1 = new User({
