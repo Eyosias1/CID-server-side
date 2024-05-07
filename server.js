@@ -4,9 +4,9 @@ const bcrypt = require('bcryptjs');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const stripe = require('stripe')('sk_test_51PC6XD08xYl0mIJxdtGnYaujSbPXvQxCoYaOFlNQTelOqEIu3LZvQANTchsBzVd7P2RtkZqtIkCRKxsY3IRuGnfF004zwRkOYk');
+const stripe = require('stripe')(process.env.STRIPE_TEST_KEY);
 const bodyParser = require('body-parser');
-const endpointSecret = "whsec_3a3fd3dfb1c7d7ae1ad0a89db0858654cfa387af32b2674d8b736c4e1f5c262e";
+const endpointSecret = process.env.WEBHOOK_END_POINT_S;
 
 // Load environment variables from .env file
 dotenv.config();
